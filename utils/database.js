@@ -4,9 +4,8 @@ let pool;
 
 if (isProduction) {
   pool = new Pool({
-    connectionString: isProduction
-      ? process.env.DATABASE_URL
-      : `postgresql://postgres:0000@localhost:5432/crown57`,
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
   });
 } else {
   pool = new Pool({
