@@ -3,6 +3,6 @@ var router = express.Router();
 const apiCrown2Controller_57 = require("../controllers/apiCrown2Controller_57");
 
 /* GET home page. */
-router.get("/crown_57", apiCrown2Controller_57.getCategories);
+router.get("/category_57", apiCrown2Controller_57.getCategories);
 
 module.exports = router;
