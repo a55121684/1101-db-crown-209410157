@@ -9,8 +9,15 @@ var usersRouter = require("./routes/users");
 let crown_57Router = require("./routes/crown_57");
 let crown2_57Router = require("./routes/crown2_57");
 let api_57Router = require("./routes/api_57");
-
+const cors = require("cors");
 var app = express();
+
+//API Setting
+app.use(
+  cors({
+    origin: ["https://heroku-crown57.herokuapp.com/"],
+  })
+);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -26,7 +33,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/crown_57", crown_57Router);
 app.use("/crown2_57", crown2_57Router);
-app.use("/api_57", api_57Router);
+app.use("/api_57", cors(), api_57Router);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
